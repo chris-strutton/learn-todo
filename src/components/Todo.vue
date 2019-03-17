@@ -12,7 +12,7 @@
           </v-toolbar>
           <v-card-text>
             <ul>
-              <li v-for="(item, index) in items" v-bind:key='index'>
+              <li v-for="(item, index) in items" v-bind:key="index">
                 {{ index }} - {{ item.text }}
               </li>
             </ul>
@@ -24,17 +24,11 @@
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      items: [
-        { text: 'item 1' },
-        { text: 'item 2' },
-        { text: 'item 3' }
-      ]
-    })
-  }
+export default {
+  data: () => ({
+    items: [{ text: "item 1" }, { text: "item 2" }, { text: "item 3" }]
+  })
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

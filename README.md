@@ -29,7 +29,7 @@ yarn run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-Steps:
+## Steps:
 initial scafold
   $ vue create todo
 
@@ -58,4 +58,9 @@ commit and push to github
 open editor
   $ code .
 
+## Things to do:
 
+-  shift list card up closer to header
+-  add new todo input field
+-  wire up add button
+-  add complete and delete buttons to each item

@@ -11,24 +11,23 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <todo-component>
-      </todo-component>
+      <todo-component> </todo-component>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Todo from './components/Todo'
+import Todo from "./components/Todo";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    'todo-component': Todo
+    "todo-component": Todo
   },
-  data () {
+  data() {
     return {
       //
-    }
+    };
   }
-}
+};
 </script>
