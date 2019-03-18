@@ -6,7 +6,12 @@
           <v-toolbar dark color="indigo">
             <v-toolbar-title>The List</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn icon large>
+            <v-text-field
+              placeholder="New item"
+              v-model="newItem"
+              v-on:keyup.enter="addItem"
+            ></v-text-field>
+            <v-btn icon large @click="addItem">
               <v-icon large>mdi-plus</v-icon>
             </v-btn>
           </v-toolbar>
@@ -16,6 +21,7 @@
                 {{ index }} - {{ item.text }}
               </li>
             </ul>
+            <p>{{ newItem }}</p>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -25,9 +31,21 @@
 
 <script>
 export default {
-  data: () => ({
-    items: [{ text: "item 1" }, { text: "item 2" }, { text: "item 3" }]
-  })
+  data: function() {
+    return {
+      newItem: "",
+      items: [{ text: "item 1" }, { text: "item 2" }, { text: "item 3" }]
+    };
+  },
+  methods: {
+    addItem: function() {
+      if (this.newItem) {
+        let item = { text: this.newItem };
+        this.items.push(item);
+        this.newItem = "";
+      }
+    }
+  }
 };
 </script>
 
