@@ -16,12 +16,20 @@
             </v-btn>
           </v-toolbar>
           <v-card-text>
-            <ul>
-              <li v-for="(item, index) in items" v-bind:key="index">
-                {{ index }} - {{ item.text }}
-              </li>
-            </ul>
-            <p>{{ newItem }}</p>
+            <v-list>
+              <v-list-tile
+                v-for="(item, index) in items" 
+                v-bind:key="index"
+                @click="updateItem(index)">
+                <v-list-tile-action>
+                  <v-checkbox v-model="item.completed">
+                  </v-checkbox>
+                </v-list-tile-action>
+                <v-list-tile-title>
+                  {{ item.title }}
+                </v-list-tile-title>
+              </v-list-tile>
+            </v-list>
           </v-card-text>
         </v-card>
       </v-flex>
@@ -34,16 +42,36 @@ export default {
   data: function() {
     return {
       newItem: "",
-      items: [{ text: "item 1" }, { text: "item 2" }, { text: "item 3" }]
+      items: [
+        { 
+          title: "Item 1",
+          completed: true 
+        }, 
+        { 
+          title: "Item 2",
+          completed: false
+        },
+        { 
+          title: "Item 3",
+          completed: false
+        }
+      ]
     };
   },
   methods: {
     addItem: function() {
+      console.log("Add Item", this.newItem);
       if (this.newItem) {
         let item = { text: this.newItem };
         this.items.push(item);
         this.newItem = "";
       }
+    },
+    updateItem: function(index) {
+      console.log("Update Item", index);
+    },
+    removeItem: function(index) {
+      console.log("Remove Item", index);
     }
   }
 };
