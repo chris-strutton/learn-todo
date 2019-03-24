@@ -18,12 +18,12 @@
           <v-card-text>
             <v-list>
               <v-list-tile
-                v-for="(item, index) in items" 
+                v-for="(item, index) in items"
                 v-bind:key="index"
-                @click="updateItem(index)">
+                @click="updateItem(index)"
+              >
                 <v-list-tile-action>
-                  <v-checkbox v-model="item.completed">
-                  </v-checkbox>
+                  <v-checkbox v-model="item.completed"> </v-checkbox>
                 </v-list-tile-action>
                 <v-list-tile-title>
                   {{ item.title }}
@@ -43,15 +43,15 @@ export default {
     return {
       newItem: "",
       items: [
-        { 
+        {
           title: "Item 1",
-          completed: true 
-        }, 
-        { 
+          completed: true
+        },
+        {
           title: "Item 2",
           completed: false
         },
-        { 
+        {
           title: "Item 3",
           completed: false
         }
